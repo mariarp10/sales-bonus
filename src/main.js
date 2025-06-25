@@ -107,7 +107,7 @@ function analyzeSalesData(data, options) {
       .sort((a, b) => b.quantity - a.quantity) 
       .slice(0, 10);
   });
-  console.log(sellerStats);
+  
   // Подготовка итоговой коллекции с нужными полями
   return sellerStats.map(seller => ({
     seller_id: seller.id,
