@@ -90,9 +90,9 @@ function analyzeSalesData(data, options) {
       // Учёт количества проданных товаров
       if (!seller.products_sold[item.sku]) {
         seller.products_sold[item.sku] = 0;
+      }
         // По артикулу товара увеличить его проданное количество у продавца
         seller.products_sold[item.sku] += item.quantity;
-      }
     });
   });
 
@@ -107,8 +107,8 @@ function analyzeSalesData(data, options) {
       .sort((a, b) => b.quantity - a.quantity) 
       .slice(0, 10);
   });
-
-  // @TODO: Подготовка итоговой коллекции с нужными полями
+  console.log(sellerStats);
+  // Подготовка итоговой коллекции с нужными полями
   return sellerStats.map(seller => ({
     seller_id: seller.id,
     name: seller.name,
